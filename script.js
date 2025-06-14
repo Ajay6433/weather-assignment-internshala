@@ -1,5 +1,5 @@
 //API key for the OpenweatherAPI
-const API_KEY ='API_KEY';
+const API_KEY ='fecdd642421af301b22efc9925ec5e17';
 
 //Accessing Input and Submit 
 const input = document.getElementById('citySearch');

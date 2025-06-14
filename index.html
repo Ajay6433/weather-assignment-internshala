@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Weather forecast application providing real-time weather updates and forecasts">
+    <meta name="keywords" content="weather, forecast, weather forecast, real-time weather, weather updates">
     <title>Weather Forecast App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -15,13 +16,14 @@
     <header class="p-4 md:p-8 text-[#a4a4a4]">
         <nav class="max-w-6xl mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-semibold">Weather Forecast</h1>
-            <button class="fixed top-4 right-4 bg-gray-700 hover:bg-gray-800 text-white rounded-lg px-4 py-2" id="darkModeBtn">
+            <button class="fixed top-4 right-4 bg-gray-700 hover:bg-gray-800 text-white rounded-lg px-4 py-2"
+                id="darkModeBtn">
                 🌙
             </button>
         </nav>
     </header>
 
-    <main class="p-4 md:p-8 -mt-16 text-[#a4a4a4]">
+    <main class="p-4 md:p-8 mt-0 text-[#a4a4a4]">
         <div class="max-w-6xl mx-auto">
             <section class="flex flex-col lg:flex-row gap-8">
                 <!-- Weather Information Section -->
@@ -45,7 +47,7 @@
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                             <div class="bg-white/5 rounded-xl p-4" role="group" aria-label="Precipitation information">
                                 <p class="text-gray-400 mb-2">Lat/Lon</p>
-                                <p class="text-xl" id="location">--%</p>
+                                <p class="text-xl" id="location">--</p>
                             </div>
                             <div class="bg-white/5 rounded-xl p-4" role="group" aria-label="Humidity information">
                                 <p class="text-gray-400 mb-2">Humidity</p>
@@ -66,13 +68,12 @@
                     <section class="mt-8">
                         <h2 class="text-xl font-semibold mb-4">5-Day Forecast</h2>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="weeklyForecast">
-                            <!-- Forecast cards will be inserted here by JavaScript -->
-                            
+                            <!-- Forecast cards -->
                         </div>
                     </section>
                 </article>
 
-                <!-- Search and Hourly Forecast Section -->
+                <!-- Search Section -->
                 <aside class="lg:w-96">
                     <section class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 mb-8">
                         <h3 class="sr-only">Search Location</h3>
@@ -90,7 +91,8 @@
                                     <i class="fas fa-search" aria-hidden="true"></i>
                                     <span>Search</span>
                                 </button>
-                                <button class="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2 ml-2" id="locationBtn">
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2 ml-2"
+                                    id="locationBtn">
                                     📍
                                 </button>
                             </div>
@@ -101,7 +103,7 @@
                     <section class="bg-white/10 backdrop-blur-lg rounded-3xl p-6">
                         <h3 class="text-xl font-semibold mb-4">Recent Searches</h3>
                         <div class="space-y-4 overflow-y-auto max-h-96" id="recentSearches" role="list">
-                            <!-- Recent searches will be populated by JavaScript -->
+                            <!-- Recent searches -->
                         </div>
                     </section>
                 </aside>

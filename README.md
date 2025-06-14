@@ -6,11 +6,10 @@ This is a simple web application that displays current weather and a 5-day forec
 
 *   **Current Weather**: Displays temperature, 'feels like' temperature, humidity, wind speed, and weather description.
 *   **5-Day Forecast**: Provides a daily forecast including high/low temperatures and weather icons.
-*   **24-Hour Hourly Forecast**: Shows hourly temperature and weather icons for the next 24 hours.
 *   **Search by City**: Allows users to search for weather data by entering a city name.
 *   **Current Location Weather**: Fetches weather data based on the user's current geographical location.
 *   **Responsive Design**: Adapts to different screen sizes (desktop, iPad Mini, iPhone SE).
-*   **Light Theme**: Features a clean white and neutral black color scheme.
+*   **Toggle Button**: Can be toggled between light and dark themes.
 
 ## Setup and Run
 
@@ -30,7 +29,7 @@ To run this project locally, follow these steps:
 3.  **Update `script.js` with your API Key**:
     Open the `script.js` file and replace the `YOUR_API_KEY_HERE` placeholder with your actual OpenWeatherMap API key:
     ```javascript
-    const API_KEY = "YOUR_API_KEY_HERE"; // Replace with your OpenWeatherMap API key
+    const API_KEY = "API_KEY"; // Replace with your OpenWeatherMap API key
     ```
 
 4.  **Open `index.html`**: 
