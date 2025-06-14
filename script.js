@@ -1,10 +1,19 @@
 //API key for the OpenweatherAPI
-const API_KEY ='fecdd642421af301b22efc9925ec5e17';
+const API_KEY ='API_KEY';
 
 //Accessing Input and Submit 
 const input = document.getElementById('citySearch');
 const submit = document.getElementById('searchBtn');
 
+input.addEventListener("input",(e)=>{
+    const value = e.target.value.trim();
+    // Only allow letters, spaces and hyphens
+    if (!/^[a-zA-Z\s-]*$/.test(value)) {
+        input.value = value.replace(/[^a-zA-Z\s-]/g, '');
+    }
+    // Disable submit button if input is empty
+    submit.disabled = value.length === 0;
+})
 //Submit button functionality 
 submit.addEventListener('click', async (e) => {
     e.preventDefault(); // This prevents the default form submission
@@ -19,7 +28,7 @@ submit.addEventListener('click', async (e) => {
             saveRecentSearch(city); //For the recent search cities list updation
         }
     } catch (error) {
-        console.error(error.message);
+       alert(error.message);
     }
 });
 
@@ -127,8 +136,7 @@ function displayForecast(data) {
     });
 }
 
-
-
+//Code for the recent search cities.
 
 // Maximum number of recent searches to store
 const MAX_RECENT_SEARCHES = 5;
@@ -142,19 +150,14 @@ function getRecentSearches() {
 // Function to save recent searches to localStorage
 function saveRecentSearch(city) {
     let searches = getRecentSearches();
-
     // Remove the city if it already exists (to avoid duplicates)
     searches = searches.filter(search => search.toLowerCase() !== city.toLowerCase());
-
     // Add the new city at the beginning
     searches.unshift(city);
-
     // Keep only the most recent searches
     searches = searches.slice(0, MAX_RECENT_SEARCHES);
-
     // Save to localStorage
     localStorage.setItem('recentSearches', JSON.stringify(searches));
-
     // Update the UI
     displayRecentSearches();
 }
@@ -171,7 +174,6 @@ function deleteRecentSearch(city) {
 function displayRecentSearches() {
     const searches = getRecentSearches();
     const recentSearchesContainer = document.getElementById('recentSearches');
-
     recentSearchesContainer.innerHTML = `
         <h3 class="text-sm font-semibold text-gray-400 mb-2">Recent Searches</h3>
         ${searches.length === 0 ? '<p class="text-sm text-gray-500">No recent searches</p>' : ''}
@@ -186,16 +188,15 @@ function displayRecentSearches() {
     `;
 }
 
-
 // Function to search city (to be used by recent searches)
 function searchCity(city) {
     input.value = city;
     submit.click();
 }
 
-
+//For the initial data loading on the weather app
 onload = async () => {
-    displayRecentSearches();
+    displayRecentSearches(); //Invoking Recent searched cities from the Local Storage.
     const coordinates = await getCoordinates('Delhi');
     if (coordinates) {
         const weatherData = await getWeatherData(coordinates.lat, coordinates.lon);
@@ -205,8 +206,7 @@ onload = async () => {
     }
 } 
 
-
-
+//Code for the current location weather.
 const locationBtn = document.getElementById("locationBtn");
 // Add click event listener for current location button
 locationBtn.addEventListener('click', (e) => {
@@ -233,8 +233,8 @@ async function getCurrentLocationWeather() {
             
             // Save the location name to recent searches
             if (weatherData.name) {
+                console.log(weatherData.name);
                 saveRecentSearch(weatherData.name);
-                
             }
             
         } catch (error) {
@@ -246,17 +246,7 @@ async function getCurrentLocationWeather() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-// Get the dark mode button by its ID
+//Code for the dark mode.
 const darkModeBtn = document.getElementById('darkModeBtn');
 
 darkModeBtn.addEventListener("click", (e) => {
