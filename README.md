@@ -2,6 +2,8 @@
 
 This is a simple web application that displays current weather and a 5-day forecast for a given city or your current location.
 
+Github URL - https://github.com/Ajay6433/weather-assignment-internshala
+
 ## Features
 
 *   **Current Weather**: Displays temperature, 'feels like' temperature, humidity, wind speed, and weather description.
@@ -34,3 +36,4 @@ To run this project locally, follow these steps:
 
 4.  **Open `index.html`**: 
     Simply open the `index.html` file in your web browser. The application will automatically try to fetch weather data for your current location (if location services are enabled and permitted by your browser) or you can use the search bar to look up a city.
+
